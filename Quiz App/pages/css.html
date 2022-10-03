@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading Style Sheet(CSS) quiz | Quiz Website</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" sizes="38x38" href="../favicon.png">
+</head>
+
+<body>
+    <!-- ======= NAVBAR ========= -->
+    <div class="navbar">
+        <h2>Quiz Website</h2>
+    </div>
+
+    <!-- ======= BODY ========= -->
+    <div class="all-quiz">
+        <p id="countdown"></p>
+        <button id="start" onclick="start()">Start Quiz</button>
+        <p id="total-q">Total Questions: 10</p>
+
+        <div id="q1">
+            <p>Q1# What is the full form of CSS?</p>
+            <input type="radio" name="question1">Creative style sheet <br>
+            <input type="radio" name="question1">Colorful style sheet <br>
+            <input type="radio" name="question1" id="correct1">Cascading style sheet <br>
+            <input type="radio" name="question1">Cascoding style sheet <br>
+            <button id="next" onclick="next1()">Next</button>
+        </div>
+
+        <div id="q2">
+            <p>Q2# What is the current version of CSS?</p>
+            <input type="radio" name="question2">4 <br>
+            <input type="radio" name="question2" id="correct2">3 <br>
+            <input type="radio" name="question2">4.2 <br>
+            <input type="radio" name="question2">3.2 <br>
+            <button id="next" onclick="next2()">Next</button>
+        </div>
+
+        <div id="q3">
+            <p>Q3# What is the correct HTML for referring to an external style sheet?</p>
+            <input type="radio" name="question3">
+            < stylesheet>mystyle.css< stylesheet> <br>
+                    <input type="radio" name="question3">
+                    < sheet>mystyle.css< /sheet> <br>
+                            <input type="radio" name="question3">
+                            < link src="mystyle.css"> <br>
+                                <input type="radio" name="question3" id="correct3">
+                                < link rel="stylesheet" href="mystyle.css"> <br>
+                                    <button id="next" onclick="next3()">Next</button>
+        </div>
+
+        <div id="q4">
+            <p>Q4# Where in an HTML document is the correct place to refer to an external style sheet?</p>
+            <input type="radio" name="question4">
+            In the < body> section <br>
+                <input type="radio" name="question4" id="correct4">
+                In the < head> section <br>
+                    <input type="radio" name="question4">
+                    In the < footer> section <br>
+                        <input type="radio" name="question4">
+                        At the end of the document <br>
+                        <button id="next" onclick="next4()">Next</button>
+        </div>
+
+        <div id="q5">
+            <p>Q5# Which HTML attribute is used to define inline styles?</p>
+            <input type="radio" name="question5">
+            stylesheet <br>
+            <input type="radio" name="question5">
+            css-style <br>
+            <input type="radio" name="question5">
+            class <br>
+            <input type="radio" name="question5" id="correct5">
+            style <br>
+            <button id="next" onclick="next5()">Next</button>
+        </div>
+
+        <div id="q6">
+            <p>Q6# How do you insert a comment in a CSS file?</p>
+            <input type="radio" name="question6">
+            # This is comment <br>
+            <input type="radio" name="question6">
+            // \\ This is comment <br>
+            <input type="radio" name="question6" id="correct6">
+            /* */ This is comment <br>
+            <input type="radio" name="question6">
+            // This is comment <br>
+            <button id="next" onclick="next6()">Next</button>
+        </div>
+
+        <div id="q7">
+            <p>Q7# Which property is used to change the background color?</p>
+            <input type="radio" name="question7">
+            bgcolor <br>
+            <input type="radio" name="question7" id="correct7">
+            background-color <br>
+            <input type="radio" name="question7">
+            color <br>
+            <input type="radio" name="question7">
+            back-color <br>
+            <button id="next" onclick="next7()">Next</button>
+        </div>
+
+        <div id="q8">
+            <p>Q8# What is the sign of CSS universal selector?</p>
+            <input type="radio" name="question8" id="correct8">* <br>
+            <input type="radio" name="question8">^ <br>
+            <input type="radio" name="question8"># <br>
+            <input type="radio" name="question8">. <br>
+            <button id="next" onclick="next8()">Next</button>
+        </div>
+
+        <div id="q9">
+            <p>Q9# Which CSS property is used to change the text color of an element?</p>
+            <input type="radio" name="question9">
+            text-color <br>
+            <input type="radio" name="question9" id="correct9">
+            color <br>
+            <input type="radio" name="question9">
+            font-color <br>
+            <input type="radio" name="question9">
+            fgcolor <br>
+            <button id="next" onclick="next9()">Next</button>
+        </div>
+
+        <div id="q10">
+            <p>Q10# How do you make each word in a text start with a capital letter?</p>
+            <input type="radio" name="question10">You can't do that in CSS <br>
+            <input type="radio" name="question10">transform: capitalize; <br>
+            <input type="radio" name="question10">text-style: capitalize; <br>
+            <input type="radio" name="question10" id="correct10">text-transform: capitalize; <br>
+            <input id="quiz-submit" type="submit" name="submit" value="Submit Quiz" onclick="result()">
+        </div>
+
+        <div id="result-con">
+            <h2> Congratulations
+                <script>
+                    document.write(localStorage.getItem('name'));
+                </script>,
+            </h2>
+            <h2 id="score"> score</h2>
+            <button id="next-test" onclick="next_test()">Next Test</button>
+        </div>
+
+
+    </div>
+    <!-- ======= FOOTER ========= -->
+    <footer>
+        <p class="footer-name">Muhammad Huzaifa</p>
+        <p>WAC-74375</p>
+    </footer>
+
+    <!-- ====== JS CODING ====== -->
+    <script>
+        function result() {
+
+            var score = 0;
+            if (document.getElementById('correct1').checked) {
+                score++;
+            }
+            if (document.getElementById('correct2').checked) {
+                score++;
+            }
+            if (document.getElementById('correct3').checked) {
+                score++;
+            }
+            if (document.getElementById('correct4').checked) {
+                score++;
+            }
+            if (document.getElementById('correct5').checked) {
+                score++;
+            }
+            if (document.getElementById('correct6').checked) {
+                score++;
+            }
+            if (document.getElementById('correct7').checked) {
+                score++;
+            }
+            if (document.getElementById('correct8').checked) {
+                score++;
+            }
+            if (document.getElementById('correct9').checked) {
+                score++;
+            }
+            if (document.getElementById('correct10').checked) {
+                score++;
+            }
+
+            document.getElementById('result-con').style.display = 'block';
+            document.getElementById('total-q').style.display = 'none';
+            document.getElementById('countdown').style.display = 'none';
+            document.getElementById('q10').style.display = 'none';
+            document.getElementById('score').innerHTML = 'You scored: ' + score + '/10'
+            
+            if(score < 7){
+                document.getElementById('remarks').innerHTML = 'Need to improve :('
+            }
+            else{
+                document.getElementById('remarks').innerHTML = 'Nicely done!'
+            }
+        }
+
+        function start() {
+            document.getElementById('q1').style.display = 'block';
+            document.getElementById('total-q').style.display = 'block';
+            document.getElementById('countdown').style.display = 'block';
+            document.getElementById('start').style.display = 'none';
+
+            // TIMER CODING STARTS HERE
+            const startingMinutes = 10;
+            let time = startingMinutes * 60;
+
+            const countdownEl = document.getElementById('countdown');
+
+            setInterval(updateCountdown, 1000);
+
+            function updateCountdown() {
+                const minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                countdownEl.innerHTML = `${minutes}:${seconds}`;
+                time--;
+            }
+        }
+
+        // NEXT BUTTON FUNCTIONS
+
+        function next1() {
+            document.getElementById('q2').style.display = 'block';
+            document.getElementById('q1').style.display = 'none';
+        }
+        function next2() {
+            document.getElementById('q3').style.display = 'block';
+            document.getElementById('q2').style.display = 'none';
+        }
+        function next3() {
+            document.getElementById('q4').style.display = 'block';
+            document.getElementById('q3').style.display = 'none';
+        }
+        function next4() {
+            document.getElementById('q5').style.display = 'block';
+            document.getElementById('q4').style.display = 'none';
+        }
+        function next5() {
+            document.getElementById('q6').style.display = 'block';
+            document.getElementById('q5').style.display = 'none';
+        }
+        function next6() {
+            document.getElementById('q7').style.display = 'block';
+            document.getElementById('q6').style.display = 'none';
+        }
+        function next7() {
+            document.getElementById('q8').style.display = 'block';
+            document.getElementById('q7').style.display = 'none';
+        }
+        function next8() {
+            document.getElementById('q9').style.display = 'block';
+            document.getElementById('q8').style.display = 'none';
+        }
+        function next9() {
+            document.getElementById('q10').style.display = 'block';
+            document.getElementById('quiz-submit').style.display = 'block';
+            document.getElementById('q9').style.display = 'none';
+        }
+
+        function next_test() {
+            window.location.href = './quizes.html'
+        }
+
+    </script>
+</body>
+
+</html>

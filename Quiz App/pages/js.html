@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript quiz | Quiz Website</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" sizes="38x38" href="../favicon.png">
+</head>
+
+<body>
+    <!-- ======= NAVBAR ========= -->
+    <div class="navbar">
+        <h2>Quiz Website</h2>
+    </div>
+
+    <!-- ======= BODY ========= -->
+    <div class="all-quiz">
+        <p id="countdown"></p>
+        <button id="start" onclick="start()">Start Quiz</button>
+        <p id="total-q">Total Questions: 7</p>
+
+        <div id="q1">
+            <p>Q1# What is the current version of JS?</p>
+            <input type="radio" name="question1">3.2 <br>
+            <input type="radio" name="question1">2 <br>
+            <input type="radio" name="question1">4 <br>
+            <input type="radio" name="question1" id="correct1">3 <br>
+            <button id="next" onclick="next1()">Next</button>
+        </div>
+
+        <div id="q2">
+            <p>Q2# Where is the correct place to insert a JavaScript?</p>
+            <input type="radio" name="question2">Inside the < head> section <br>
+                <input type="radio" name="question2">Inside the < body> section <br>
+                    <input type="radio" name="question2">Inside the < html> section <br>
+                        <input type="radio" name="question2" id="correct2">Both < head> and < body> are correct <br>
+                                <button id="next" onclick="next2()">Next</button>
+        </div>
+
+        <div id="q3">
+            <p>Q3# The external JavaScript file must contain the script tag.</p>
+            <input type="radio" name="question3">
+            True <br>
+            <input type="radio" name="question3" id="correct3">
+            False <br>
+            <button id="next" onclick="next3()">Next</button>
+        </div>
+
+        <div id="q4">
+            <p>Q4# How do you write "Hello World" in an alert box?</p>
+            <input type="radio" name="question4">
+            msg("Hello World") <br>
+            <input type="radio" name="question4" id="correct4">
+            alert("Hello World") <br>
+            <input type="radio" name="question4">
+            msgbox("Hello World") <br>
+            <input type="radio" name="question4">
+            alertbox("Hello World") <br>
+            <button id="next" onclick="next4()">Next</button>
+        </div>
+
+        <div id="q5">
+            <p>Q5# How do you create a function in JavaScript?</p>
+            <input type="radio" name="question5">
+            function: myfunction() <br>
+            <input type="radio" name="question5">
+            function = myfunction() <br>
+            <input type="radio" name="question5" id="correct5">
+            function myfunction() <br>
+            <input type="radio" name="question5">
+            function.myfunction() <br>
+            <button id="next" onclick="next5()">Next</button>
+        </div>
+
+        <div id="q6">
+            <p>Q6# How to write an IF statement in JavaScript?</p>
+            <input type="radio" name="question6">
+            if = 5 then <br>
+            <input type="radio" name="question6" id="correct6">
+            if (i == 5) <br>
+            <input type="radio" name="question6">
+            if i = 5 <br>
+            <input type="radio" name="question6">
+            if i == 5 then <br>
+            <button id="next" onclick="next6()">Next</button>
+        </div>
+
+        <div id="q7">
+            <p>Q7# How can you add a comment in a JavaScript?</p>
+            <input type="radio" name="question7" id="correct7">
+            // This is comment <br>
+            <input type="radio" name="question7">
+            ** This is comment <br>
+            <input type="radio" name="question7">
+            /* */ This is comment <br>
+            <input type="radio" name="question7">
+            //* *\\ This is comment <br>
+            <input id="quiz-submit" type="submit" name="submit" value="Submit Quiz" onclick="result()">
+        </div>
+
+
+        <div id="result-con">
+            <h2> Congratulations
+                <script>
+                    document.write(localStorage.getItem('name'));
+                </script>,
+            </h2>
+            <h2 id="score"> score</h2>
+            <h2 id="remarks"> remarks</h2>
+            <button id="next-test" onclick="next_test()">Next Test</button>
+        </div>
+
+
+    </div>
+    <!-- ======= FOOTER ========= -->
+    <footer>
+        <p class="footer-name">Muhammad Huzaifa</p>
+        <p>WAC-74375</p>
+    </footer>
+
+    <!-- ====== JS CODING ====== -->
+    <script>
+        function result() {
+
+            var score = 0;
+            if (document.getElementById('correct1').checked) {
+                score++;
+            }
+            if (document.getElementById('correct2').checked) {
+                score++;
+            }
+            if (document.getElementById('correct3').checked) {
+                score++;
+            }
+            if (document.getElementById('correct4').checked) {
+                score++;
+            }
+            if (document.getElementById('correct5').checked) {
+                score++;
+            }
+            if (document.getElementById('correct6').checked) {
+                score++;
+            }
+            if (document.getElementById('correct7').checked) {
+                score++;
+            }
+
+
+            document.getElementById('result-con').style.display = 'block';
+            document.getElementById('total-q').style.display = 'none';
+            document.getElementById('countdown').style.display = 'none';
+            document.getElementById('q7').style.display = 'none';
+            document.getElementById('score').innerHTML = 'You scored: ' + score + '/7'
+
+            if (score < 4) {
+                document.getElementById('remarks').innerHTML = 'Need to improve :('
+            }
+            else {
+                document.getElementById('remarks').innerHTML = 'Nicely done!'
+            }
+        }
+
+        function start() {
+            document.getElementById('q1').style.display = 'block';
+            document.getElementById('total-q').style.display = 'block';
+            document.getElementById('countdown').style.dispay = 'block';
+            document.getElementById('start').style.display = 'none';
+
+            // TIMER CODING STARTS HERE
+            const startingMinutes = 10;
+            let time = startingMinutes * 60;
+
+            const countdownEl = document.getElementById('countdown');
+
+            setInterval(updateCountdown, 1000);
+
+            function updateCountdown() {
+                const minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                countdownEl.innerHTML = `${minutes}:${seconds}`;
+                time--;
+            }
+        }
+
+        // NEXT BUTTON FUNCTIONS
+
+        function next1() {
+            document.getElementById('q2').style.display = 'block';
+            document.getElementById('q1').style.display = 'none';
+        }
+        function next2() {
+            document.getElementById('q3').style.display = 'block';
+            document.getElementById('q2').style.display = 'none';
+        }
+        function next3() {
+            document.getElementById('q4').style.display = 'block';
+            document.getElementById('q3').style.display = 'none';
+        }
+        function next4() {
+            document.getElementById('q5').style.display = 'block';
+            document.getElementById('q4').style.display = 'none';
+        }
+        function next5() {
+            document.getElementById('q6').style.display = 'block';
+            document.getElementById('q5').style.display = 'none';
+        }
+        function next6() {
+            document.getElementById('q7').style.display = 'block';
+            document.getElementById('quiz-submit').style.display = 'block';
+            document.getElementById('q6').style.display = 'none';
+            document.getElementById('next').style.display = 'none';
+        }
+
+        function next_test() {
+            window.location.href = './quizes.html'
+        }
+
+    </script>
+</body>
+
+</html>
